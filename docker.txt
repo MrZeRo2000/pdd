@@ -1,0 +1,6 @@
+
+docker build -t romanpulov/pdd:0.1 .
+
+docker run -it --name pdd romanpulov/pdd:0.1
+
+docker container rm -f pdd
