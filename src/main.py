@@ -4,7 +4,6 @@ import os
 import cx_Oracle
 
 LOG_FORMAT = "%(asctime)s %(levelname)s %(name)s %(module)s %(message)s"
-CONNECTION_STRING = "drivenow_bi/drivenow_bi@10.100.38.84:1521/sxbista_rw.sixt.de"
 
 console_handler = logging.StreamHandler()
 console_handler.setFormatter(logging.Formatter(LOG_FORMAT))
@@ -16,7 +15,10 @@ logger.addHandler(console_handler)
 try:
     logger.info("Started")
 
-    connection = cx_Oracle.connect(CONNECTION_STRING)
+    connection_string = os.environ["CONNECTION_STRING"]
+    logger.info("Obtained connection string:" + connection_string)
+
+    connection = cx_Oracle.connect(connection_string)
     logger.info("Connected to database")
 
     cursor = connection.cursor()

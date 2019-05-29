@@ -4,3 +4,5 @@ docker build -t romanpulov/pdd:0.1 .
 docker run -it --name pdd romanpulov/pdd:0.1
 
 docker container rm -f pdd
+
+docker run -it --name pdd --env CONNECTION_STRING=xxxx/xxxx@10.100.38.84:1521/sxbista_rw.sixt.de romanpulov/pdd:0.1
